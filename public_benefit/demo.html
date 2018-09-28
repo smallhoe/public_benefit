@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jQuery-1.12.4.js"></script>
+
+	<script>
+
+  $(function(){
+	// 弹出层
+	var box_w=$(".g_tcc").width();//获取box的宽度;
+	var box_h=$(".g_tcc").height();//获取box的高度;
+	var win_w=$(window).width();//获取浏览器宽度;
+	var win_h=$(window).height();//获取浏览器的高度;
+	var box_l=(win_w-box_w)/2;
+	var box_t=(win_h-box_h)/2;
+	$(".beijing").height(win_h);//height()括号内有内容就是设置高度，没内容就是获取高度;
+	$(".g_tcc").css({ left:box_l,top:box_t})
+	//alert(box_l)
+	//$(".btn").click(alert("dklfjdklfj"));//click()里面不加函数的话会自动执行;
+	$(window).resize(function(){//resize()当页面窗口改变的时候执行;
+	    win_w=$(window).width();
+	    win_h=$(window).height();
+		box_l=(win_w-box_w)/2;
+		box_t=(win_h-box_h)/2;
+		$(".beijing").height(win_h);
+		$(".g_tcc").css({ left:box_l,top:box_t})
+	})
+	$(".fximg").click(function(){
+		//alert(79878);	
+		$(".g_tcc").css({display:"block"});
+		$(".beijing").css({display:"block"});
+	});
+	$(".gb").click(function(){
+		$(".g_tcc").css({display:"none"});
+		$(".beijing").css({display:"none"});	
+	})
+	
+});
+	</script>
+	<style>
+    .g_tcc{ 
+	 width:400px; 
+	 height:240px; 
+	 background:#fff; ;
+	 position:fixed; 
+	 top:0; 
+	 left:0; 
+	 /*display:none; */
+	 z-index:1112;
+	
+	 color: #fff  ;
+	 border: 2px solid pink;
+}
+ .g_tcc .heder{
+ 	width: 400px;
+ 	height: 60px;
+ 	background:#4E931C;
+ 	line-height: 60px;
+    
+ }
+.g_tcc .heder span:nth-child(1){
+	margin-left: 20px;
+	font-size: 16px;
+    
+}
+.g_tcc .heder span:nth-child(2){
+	
+	font-size: 16px;
+    
+}
+.g_tcc .jk{
+ 	width: 400px;
+ 	height: 60px;
+ 	background:#fff;
+ 	line-height: 60px;
+ 	color: #999;
+    
+ }
+.g_tcc .jk span:nth-child(1){
+	margin-left: 20px;
+	font-size: 16px;
+    
+}
+.g_tcc .jk span:nth-child(2){
+	
+	font-size: 16px;
+    
+}
+.g_tcc form{
+	width: 400px;
+	
+	
+	
+}
+
+.g_tcc form .yhm{
+	width: 400px;
+	height: 60px;
+	background: #999;
+
+}
+ .g_tcc form  .submit{
+     font-size: 18px;
+     width: 100px;
+     height: 40px;
+     color: #fff;
+     margin-top: 10px;
+     margin-left: 150px;
+     background: #4E931C;
+ }
+.g_tcc .gb{ 
+	 width:30px; 
+	 height:30px; 
+	 color:#FFF; 
+	 text-align:center; 
+	 line-height:30px; 
+	 position:absolute; 
+	 top: 0;
+	 right:0; /*box外显示-30px*/
+	 cursor:pointer; 
+	 z-index:1111;
+ }
+
+ .g_tcc .gb:hover{
+	background:#999; 
+ }
+.beijing{ 
+	 width:100%; 
+	 height:0; 
+	 background:#000; 
+	 opacity:0.2; /*设置透明度*/
+	 position:fixed; 
+	 top:0;
+	 left:0;
+	 display:none;
+	 z-index: 1110;
+ }
+
+	</style>
+</head>
+<body>
+<input type="button" value="djfkjd" class="fximg">
+<!-- 弹出层 -->
+	<div class="g_tcc">
+				
+				<div class="heder">
+					
+					<span>单笔捐款项目——</span>
+                     <span>asd</span>
+				</div>	
+				<form action=""><!--要加上一个属性en……  -->
+					<div class="jk">
+						<span>用户名：</span>
+					</div>
+					<div class="jk">
+						<span>捐款金额：</span>
+						
+						<input type="text">
+						<span>元</span>
+					</div>
+
+					
+					<input class="submit"  type="submit">
+				</form>
+				
+				<div class="gb">×</div>
+	</div>
+    <div class="beijing"></div>
+</body>
+</html>

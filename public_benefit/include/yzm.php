@@ -1,0 +1,32 @@
+<?php 
+   session_start();
+//(1)应用mt_rand（）函数产生随机数
+    $str="abcdefghijklmnopqrstuvwxyz0123456789";
+  for($i=0;$i<4;$i++){
+@$num.=substr($str,mt_rand(0,35),1);
+  }
+  	$_SESSION['yzm']=$num;
+//(2)应用imagecreate（）函数创建图像
+    $img=imagecreate(55,20);
+	$white=imagecolorallocate($img,224,224,224);
+	$blue=imagecolorallocate($img,150,150,150);
+//(3)添加不同颜色的$号作为干扰背景
+    for($i=0;$i<200;$i++){
+	$x=mt_rand(1,60-9);
+	$y=mt_rand(1,20-6);	
+	$color=imagecolorallocate($img,200,200,200);
+	imagechar($img,1,$x,$y,'',$color);
+	}
+//(4)通过for循环将随机数显示在所创建的图片中
+    $strx=mt_rand(3,5);
+	for($i=0;$i<4;$i++){
+		$stry=mt_rand(1,5);
+		imagechar($img,5,$strx,$stry,substr($num,$i,1),$blue);
+		$strx+=mt_rand(8,13);
+	}
+//(5)输出图片 
+header("content-type:image/gif");
+imagegif($img);
+
+
+?>

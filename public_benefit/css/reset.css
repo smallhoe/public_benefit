@@ -1,0 +1,37 @@
+* { /* 通配符  代表页面所有元素*/
+	padding:0;
+	margin: 0;
+	/*box-sizing:border-box; 改变元素大小的计算方式*/
+	-webkit-box-sizing:border-box; 
+	box-sizing:border-box;
+}
+ul , ol {
+	list-style: none;
+}
+input , textarea {
+	border:0;
+	outline: none;
+}
+a,
+a:hover,
+a:focus {
+	color:#333;
+	text-decoration:none;
+}
+
+/* common css */
+.f_left {
+	float: left;
+}
+.f_right {
+	float: right;
+}
+/*清除浮动*/
+.clearfix::after {
+	content: '';
+	display: block;
+	clear: both;
+	
+	height: 0;
+	visibility: hidden;
+}
